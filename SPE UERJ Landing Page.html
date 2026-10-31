@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPE UERJ - Society of Petroleum Engineers</title>
+    <!-- Tailwind CSS para Estilização -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuração de Cores Customizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        speBlue: '#0033A0', // Azul institucional
+                        speYellow: '#FFC72C', // Amarelo/Dourado institucional
+                        speDark: '#0B1B3D',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos adicionais para efeitos específicos */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(11, 27, 61, 0.8), rgba(0, 51, 160, 0.8)), url('https://placehold.co/1920x1080/0033A0/FFFFFF?text=Fundo+Indústria+de+Energia') center/cover;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+    <!-- Navegação (Sticky) -->
+    <nav class="glass-nav fixed w-full z-50 top-0 transition-all duration-300 shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-12 h-12 bg-speBlue text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-md">
+                        SPE
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl text-speBlue block leading-tight">SPE UERJ</span>
+                        <span class="text-xs text-gray-500 font-semibold tracking-wider block">STUDENT CHAPTER</span>
+                    </div>
+                </div>
+
+                <!-- Links Desktop -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-600 hover:text-speBlue font-medium transition-colors">Início</a>
+                    <a href="#sobre" class="text-gray-600 hover:text-speBlue font-medium transition-colors">O que somos</a>
+                    <a href="#setores" class="text-gray-600 hover:text-speBlue font-medium transition-colors">Setores</a>
+                    <a href="#equipe" class="text-gray-600 hover:text-speBlue font-medium transition-colors">Equipe</a>
+                    <a href="#cursos" class="text-gray-600 hover:text-speBlue font-medium transition-colors">Cursos</a>
+                    <a href="#contato" class="bg-speYellow text-speDark px-6 py-2 rounded-full font-bold hover:bg-yellow-400 transition-all shadow-md">Contato</a>
+                </div>
+
+                <!-- Botão Menu Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-speBlue hover:text-speDark focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-speBlue rounded-md">Início</a>
+                <a href="#sobre" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-speBlue rounded-md">O que somos</a>
+                <a href="#setores" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-speBlue rounded-md">Setores</a>
+                <a href="#equipe" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-speBlue rounded-md">Equipe</a>
+                <a href="#cursos" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-speBlue rounded-md">Cursos</a>
+                <a href="#contato" class="block px-3 py-3 text-base font-bold text-speDark bg-speYellow rounded-md text-center mt-4">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center relative mt-10 md:mt-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-3xl">
+                <span class="inline-block py-1 px-3 rounded-full bg-speYellow/20 text-speYellow font-bold text-sm tracking-widest mb-4 border border-speYellow/50 uppercase">
+                    Capítulo Estudantil UERJ
+                </span>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+                    Conectando estudantes à <span class="text-speYellow">Indústria de Energia</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-light">
+                    Desenvolvimento técnico, networking e inovação. Preparamos os futuros líderes da engenharia de petróleo e do setor energético global.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#sobre" class="bg-speYellow text-speDark text-center px-8 py-4 rounded-full font-bold hover:bg-yellow-400 hover:scale-105 transition-all shadow-lg flex items-center justify-center gap-2">
+                        Conheça a SPE <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contato" class="bg-transparent border-2 border-white text-white text-center px-8 py-4 rounded-full font-bold hover:bg-white/10 hover:scale-105 transition-all">
+                        Fale Conosco
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#sobre" class="text-white/70 hover:text-speYellow transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- O que somos Section -->
+    <section id="sobre" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <!-- Placeholder Imagem -->
+                    <div class="rounded-2xl overflow-hidden shadow-2xl relative z-10">
+                        <img src="https://placehold.co/600x600/e2e8f0/64748b?text=Foto+da+Equipe/Eventos" alt="Sobre a SPE UERJ" class="w-full h-auto object-cover aspect-square">
+                    </div>
+                    <!-- Elemento decorativo -->
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-speYellow rounded-2xl -z-10"></div>
+                    <div class="absolute -top-6 -left-6 w-48 h-48 bg-speBlue opacity-10 rounded-full -z-10"></div>
+                </div>
+                <div>
+                    <h2 class="text-speBlue font-bold tracking-wider uppercase text-sm mb-2">Quem Somos</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+                        Society of Petroleum Engineers - UERJ
+                    </h3>
+                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                        <p>
+                            A <strong>SPE (Society of Petroleum Engineers)</strong> é a maior organização de membros individuais atendendo a gestores, engenheiros, cientistas e outros profissionais da indústria de petróleo e gás em todo o mundo.
+                        </p>
+                        <p>
+                            O <strong>Capítulo Estudantil SPE UERJ</strong> foi fundado com a missão de complementar a formação acadêmica dos estudantes, promovendo a disseminação de conhecimento técnico e científico de ponta.
+                        </p>
+                        <p>
+                            Através de palestras, minicursos, visitas técnicas e projetos de pesquisa, construímos a ponte essencial entre a universidade e as principais empresas do setor energético, preparando profissionais de excelência.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-6 mt-10">
+                        <div class="border-l-4 border-speYellow pl-4">
+                            <h4 class="text-3xl font-bold text-speBlue">500+</h4>
+                            <p class="text-gray-500 font-medium">Membros Ativos</p>
+                        </div>
+                        <div class="border-l-4 border-speBlue pl-4">
+                            <h4 class="text-3xl font-bold text-speBlue">10+</h4>
+                            <p class="text-gray-500 font-medium">Anos de História</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setores Section -->
+    <section id="setores" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-speBlue font-bold tracking-wider uppercase text-sm mb-2">Organização</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Conheça Nossos Setores</h3>
+                <p class="text-gray-600 text-lg">Nosso capítulo é dividido em diretorias estratégicas para garantir o melhor funcionamento e entrega de valor aos nossos membros.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Setor 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover group">
+                    <div class="w-14 h-14 bg-blue-50 text-speBlue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-speBlue group-hover:text-white transition-colors">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Comunicação e Marketing</h4>
+                    <p class="text-gray-600">Responsável pela identidade visual, gestão de redes sociais, divulgação de eventos e relacionamento com o público.</p>
+                </div>
+
+                <!-- Setor 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover group">
+                    <div class="w-14 h-14 bg-blue-50 text-speBlue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-speBlue group-hover:text-white transition-colors">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Projetos</h4>
+                    <p class="text-gray-600">Desenvolvimento de pesquisas, projetos técnicos, hackathons e soluções inovadoras para desafios da indústria.</p>
+                </div>
+
+                <!-- Setor 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover group">
+                    <div class="w-14 h-14 bg-blue-50 text-speBlue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-speBlue group-hover:text-white transition-colors">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Eventos</h4>
+                    <p class="text-gray-600">Planejamento e execução de palestras, semanas acadêmicas, visitas técnicas e workshops práticos.</p>
+                </div>
+
+                <!-- Setor 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover group">
+                    <div class="w-14 h-14 bg-blue-50 text-speBlue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-speBlue group-hover:text-white transition-colors">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Recursos Humanos</h4>
+                    <p class="text-gray-600">Gestão de membros, processos seletivos, integração de novos alunos e acompanhamento do clima organizacional.</p>
+                </div>
+
+                <!-- Setor 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover group">
+                    <div class="w-14 h-14 bg-blue-50 text-speBlue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-speBlue group-hover:text-white transition-colors">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Relações Externas</h4>
+                    <p class="text-gray-600">Busca de patrocínios, parcerias com empresas da área de energia e contato com profissionais renomados.</p>
+                </div>
+                
+                <!-- Setor 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 card-hover group">
+                    <div class="w-14 h-14 bg-blue-50 text-speBlue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-speBlue group-hover:text-white transition-colors">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">TI & Inovação</h4>
+                    <p class="text-gray-600">Gestão das plataformas digitais do capítulo, automação de processos e suporte tecnológico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nossa Equipe Section -->
+    <section id="equipe" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-speBlue font-bold tracking-wider uppercase text-sm mb-2">Quem Faz Acontecer</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Nossa Liderança</h3>
+                <p class="text-gray-600 text-lg">Estudantes dedicados que trabalham voluntariamente para elevar o nível da engenharia na universidade.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Membro 1 -->
+                <div class="text-center group">
+                    <div class="relative w-48 h-48 mx-auto mb-4 overflow-hidden rounded-full border-4 border-gray-100 group-hover:border-speYellow transition-colors duration-300">
+                        <img src="https://placehold.co/400x400/0033a0/ffffff?text=Foto" alt="Membro" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900">João Silva</h4>
+                    <p class="text-speBlue font-medium mb-3">Presidente</p>
+                    <div class="flex justify-center space-x-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <a href="#" class="w-8 h-8 rounded-full bg-blue-100 text-speBlue flex items-center justify-center hover:bg-speBlue hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Membro 2 -->
+                <div class="text-center group">
+                    <div class="relative w-48 h-48 mx-auto mb-4 overflow-hidden rounded-full border-4 border-gray-100 group-hover:border-speYellow transition-colors duration-300">
+                        <img src="https://placehold.co/400x400/0033a0/ffffff?text=Foto" alt="Membro" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900">Mariana Costa</h4>
+                    <p class="text-speBlue font-medium mb-3">Vice-Presidente</p>
+                    <div class="flex justify-center space-x-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <a href="#" class="w-8 h-8 rounded-full bg-blue-100 text-speBlue flex items-center justify-center hover:bg-speBlue hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Membro 3 -->
+                <div class="text-center group">
+                    <div class="relative w-48 h-48 mx-auto mb-4 overflow-hidden rounded-full border-4 border-gray-100 group-hover:border-speYellow transition-colors duration-300">
+                        <img src="https://placehold.co/400x400/0033a0/ffffff?text=Foto" alt="Membro" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900">Pedro Alves</h4>
+                    <p class="text-speBlue font-medium mb-3">Diretor de Projetos</p>
+                    <div class="flex justify-center space-x-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <a href="#" class="w-8 h-8 rounded-full bg-blue-100 text-speBlue flex items-center justify-center hover:bg-speBlue hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Membro 4 -->
+                <div class="text-center group">
+                    <div class="relative w-48 h-48 mx-auto mb-4 overflow-hidden rounded-full border-4 border-gray-100 group-hover:border-speYellow transition-colors duration-300">
+                        <img src="https://placehold.co/400x400/0033a0/ffffff?text=Foto" alt="Membro" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900">Ana Souza</h4>
+                    <p class="text-speBlue font-medium mb-3">Diretora de Eventos</p>
+                    <div class="flex justify-center space-x-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <a href="#" class="w-8 h-8 rounded-full bg-blue-100 text-speBlue flex items-center justify-center hover:bg-speBlue hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="text-speBlue font-semibold hover:text-speDark underline decoration-2 underline-offset-4 transition-colors">
+                    Ver todos os membros
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cursos Section -->
+    <section id="cursos" class="py-24 bg-speDark text-white relative overflow-hidden">
+        <!-- Detalhes de fundo -->
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-speBlue opacity-50 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-speYellow opacity-20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-speYellow font-bold tracking-wider uppercase text-sm mb-2">Capacitação</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Cursos e Workshops</h3>
+                    <p class="text-gray-300 text-lg">Aprimore suas habilidades técnicas e *soft skills* com nossos treinamentos focados na realidade do mercado.</p>
+                </div>
+                <button class="hidden md:block bg-transparent border border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-speDark transition-colors font-semibold">
+                    Ver Agenda Completa
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Curso 1 -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden card-hover">
+                    <div class="h-48 bg-gray-800 relative">
+                        <img src="https://placehold.co/600x400/2c3e50/ffffff?text=Introdução+à+Engenharia" alt="Curso 1" class="w-full h-full object-cover opacity-80">
+                        <div class="absolute top-4 left-4 bg-speYellow text-speDark text-xs font-bold px-3 py-1 rounded-full uppercase">Em Breve</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Introdução à Engenharia de Petróleo</h4>
+                        <p class="text-gray-300 text-sm mb-4">Conceitos fundamentais de exploração, perfuração e produção para iniciantes na área.</p>
+                        <div class="flex items-center text-sm text-gray-400 mb-6 gap-4">
+                            <span><i class="far fa-calendar-alt mr-2 text-speYellow"></i> A definir</span>
+                            <span><i class="fas fa-video mr-2 text-speYellow"></i> Online</span>
+                        </div>
+                        <button class="w-full bg-speBlue hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition-colors">Inscreva-se</button>
+                    </div>
+                </div>
+
+                <!-- Curso 2 -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden card-hover">
+                    <div class="h-48 bg-gray-800 relative">
+                        <img src="https://placehold.co/600x400/2c3e50/ffffff?text=Python+para+Engenheiros" alt="Curso 2" class="w-full h-full object-cover opacity-80">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Inscrições Abertas</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Python para Engenheiros</h4>
+                        <p class="text-gray-300 text-sm mb-4">Aprenda a automatizar tarefas e analisar dados técnicos utilizando programação em Python.</p>
+                        <div class="flex items-center text-sm text-gray-400 mb-6 gap-4">
+                            <span><i class="far fa-calendar-alt mr-2 text-speYellow"></i> 15 Nov</span>
+                            <span><i class="fas fa-map-marker-alt mr-2 text-speYellow"></i> UERJ, Sala 102</span>
+                        </div>
+                        <button class="w-full bg-speBlue hover:bg-blue-600 text-white font-bold py-3 rounded-lg transition-colors">Inscreva-se</button>
+                    </div>
+                </div>
+
+                <!-- Curso 3 -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden card-hover">
+                    <div class="h-48 bg-gray-800 relative">
+                        <img src="https://placehold.co/600x400/2c3e50/ffffff?text=Soft+Skills" alt="Curso 3" class="w-full h-full object-cover opacity-80">
+                        <div class="absolute top-4 left-4 bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Encerrado</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Liderança e Gestão de Tempo</h4>
+                        <p class="text-gray-300 text-sm mb-4">Workshop interativo focado no desenvolvimento pessoal para o mercado corporativo.</p>
+                        <div class="flex items-center text-sm text-gray-400 mb-6 gap-4">
+                            <span><i class="far fa-calendar-alt mr-2 text-speYellow"></i> 10 Out</span>
+                            <span><i class="fas fa-map-marker-alt mr-2 text-speYellow"></i> Auditório Central</span>
+                        </div>
+                        <button class="w-full bg-gray-600 cursor-not-allowed text-white font-bold py-3 rounded-lg opacity-50">Turma Lotada</button>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="md:hidden mt-8 w-full bg-transparent border border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-speDark transition-colors font-semibold">
+                Ver Agenda Completa
+            </button>
+        </div>
+    </section>
+
+    <!-- Contatos Section -->
+    <section id="contato" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Informações -->
+                <div>
+                    <h2 class="text-speBlue font-bold tracking-wider uppercase text-sm mb-2">Fale Conosco</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">Entre em contato</h3>
+                    <p class="text-gray-600 text-lg mb-8">Tem alguma dúvida, quer propor uma parceria ou saber como se juntar ao capítulo? Mande uma mensagem para a gente!</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-speBlue rounded-full flex items-center justify-center text-xl">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">Endereço</h4>
+                                <p class="text-gray-600">UERJ - Maracanã<br>Rua São Francisco Xavier, 524<br>Rio de Janeiro - RJ, Brasil</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-speBlue rounded-full flex items-center justify-center text-xl">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900">E-mail</h4>
+                                <p class="text-gray-600">contato@speuerj.org.br</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <h4 class="text-lg font-bold text-gray-900 mb-4">Nossas Redes</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-white border border-gray-200 text-speBlue rounded-full flex items-center justify-center text-xl hover:bg-speBlue hover:text-white transition-all shadow-sm hover:shadow-md">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-white border border-gray-200 text-speBlue rounded-full flex items-center justify-center text-xl hover:bg-speBlue hover:text-white transition-all shadow-sm hover:shadow-md">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-white border border-gray-200 text-speBlue rounded-full flex items-center justify-center text-xl hover:bg-speBlue hover:text-white transition-all shadow-sm hover:shadow-md">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <form onsubmit="event.preventDefault(); showMessage();">
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-speBlue focus:border-speBlue outline-none transition-colors bg-gray-50 focus:bg-white" placeholder="Seu nome" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">E-mail</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-speBlue focus:border-speBlue outline-none transition-colors bg-gray-50 focus:bg-white" placeholder="seu@email.com" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="assunto" class="block text-sm font-medium text-gray-700 mb-2">Assunto</label>
+                            <select id="assunto" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-speBlue focus:border-speBlue outline-none transition-colors bg-gray-50 focus:bg-white">
+                                <option>Dúvida Geral</option>
+                                <option>Parcerias/Patrocínio</option>
+                                <option>Inscrição em Cursos</option>
+                                <option>Processo Seletivo</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensagem</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-speBlue focus:border-speBlue outline-none transition-colors bg-gray-50 focus:bg-white resize-none" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                        </div>
+                        
+                        <div id="form-message" class="hidden mb-4 p-4 rounded-lg bg-green-50 text-green-700 text-sm font-medium">
+                            Mensagem enviada com sucesso! Entraremos em contato em breve.
+                        </div>
+
+                        <button type="submit" class="w-full bg-speBlue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition-colors shadow-md">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex justify-center items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-white text-speBlue rounded flex items-center justify-center font-bold text-lg">
+                    SPE
+                </div>
+                <span class="font-bold text-xl text-white">SPE UERJ</span>
+            </div>
+            <p class="text-gray-400 mb-6 max-w-lg mx-auto">
+                Society of Petroleum Engineers Student Chapter.<br>Desenvolvendo os futuros líderes da indústria de energia.
+            </p>
+            <div class="border-t border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 SPE UERJ. Todos os direitos reservados.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        // Lógica do Menu Mobile
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Fechar menu mobile ao clicar em um link
+        const menuLinks = menu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Efeito Navbar ao dar Scroll (Fica menor/muda sombra)
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // Mensagem de sucesso do formulário simulada
+        function showMessage() {
+            const msgBox = document.getElementById('form-message');
+            msgBox.classList.remove('hidden');
+            
+            // Oculta após 5 segundos
+            setTimeout(() => {
+                msgBox.classList.add('hidden');
+                document.querySelector('form').reset();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
